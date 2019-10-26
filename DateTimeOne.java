@@ -41,13 +41,19 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 	   System.out.println("Time on Server: " + myTime.format(hashPattern));
 	   System.out.println("GMT: " + stringHash.get("GMT"));
 	   System.out.println("BST (90E): " + stringHash.get("BST"));
-	   System.out.print("CST (90W): " + stringHash.get("CST"));
+	   System.out.println("CST (90W): " + stringHash.get("CST"));
    }
    
    public void dateTimeDifferentZone() {
 	   stringHash.put("ZST", "11/05/2018 19:59");
 	   stringHash.put("AST", "10/01/2020 19:59");
 	   
+	   System.out.println("GMT: " + LocalDateTime.now(ZoneId.of("GMT")).format(printPattern));
+	   System.out.println("BST: " + LocalDateTime.now(ZoneId.of("BST")).format(printPattern));
+	   System.out.println("CST: " + LocalDateTime.now(ZoneId.of("CST")).format(printPattern));
+   }
+   
+   public void timeZoneHashMap() {
 	   HashMap<String,String> secondStringHash = new HashMap<String,String>();
 	   secondStringHash.put(stringHash.get("GMT"),"GMT");
 	   secondStringHash.put(stringHash.get("BST"),"BST");
@@ -65,10 +71,5 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 	   
 	   System.out.println("Print Style 1: ");
 	   
-	   
-   }
-   
-   public void timeZoneHashMap() {
-	   //TODO
    }
 }
